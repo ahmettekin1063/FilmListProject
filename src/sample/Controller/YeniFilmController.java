@@ -5,7 +5,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class yeniFilmController {
+public class YeniFilmController {
 
     @FXML
     private DatePicker dateCikisTarihi;
