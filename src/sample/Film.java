@@ -1,4 +1,4 @@
-package sample.Model;
+package sample;
 
 import java.time.LocalDate;
 
@@ -40,10 +40,6 @@ public class Film {
 
     @Override
     public String toString() {
-        return "Film{" +
-                "baslik='" + baslik + '\'' +
-                ", detay='" + detay + '\'' +
-                ", localDate=" + localDate +
-                '}';
+        return baslik;
     }
 }

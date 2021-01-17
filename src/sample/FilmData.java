@@ -1,4 +1,4 @@
-package sample.Model;
+package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,7 +15,11 @@ public class FilmData {
     private final static FilmData filmData = new FilmData();
 
     private final DateTimeFormatter formatter;
-    ObservableList<Film> filmObservableList;
+    private ObservableList<Film> filmObservableList;
+
+    public ObservableList<Film> getFilmObservableList() {
+        return filmObservableList;
+    }
 
     public static FilmData getInstance() {
 
@@ -42,22 +46,22 @@ public class FilmData {
 
                 String filmTitle = oneLine[0];
                 String filmDetail = oneLine[1];
-                LocalDate filmLocalDate = LocalDate.parse(oneLine[2],formatter);
+                LocalDate filmLocalDate = LocalDate.parse(oneLine[2], formatter);
 
                 Film f = new Film(filmTitle, filmDetail, filmLocalDate);
 
                 filmObservableList.add(f);
 
             }
-            System.out.println(filmObservableList);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void writeFilmToFile() {
-//                      append değeri
-        
+//FileWriter constructorunda 2. parametre olan append değeri true olursa aynı filmi dosyaya tekrar tekrar yazar.
+
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("films.txt"))) {
 
 
@@ -79,6 +83,7 @@ public class FilmData {
 
     public void filmSil(Film film) {
 
-        filmObservableList.remove(film);
+            filmObservableList.remove(film);
+
     }
 }
